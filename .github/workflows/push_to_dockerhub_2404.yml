@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - 'master'
+    paths:
+      - 'docker-root-2404/**'
+      - 'Dockerfile.amd64-2404'
+      - 'Dockerfile.arm64-2404'
+  workflow_dispatch:
 
 jobs:
   docker:
