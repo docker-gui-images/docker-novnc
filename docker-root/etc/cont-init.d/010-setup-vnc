@@ -9,9 +9,7 @@ if [ "$VNC_PASSWD" != '' ]; then
 	echo -e "$VNC_PASSWD\n$VNC_PASSWD\n\n" | sudo -Hu user vncpasswd
 fi
 
-if [ ! -d /etc/vnc ]; then
-	mkdir /etc/vnc
-fi
+mkdir -p /etc/vnc
 echo 'openbox-session' > /etc/vnc/xstartup
 
 # Clear X lock.

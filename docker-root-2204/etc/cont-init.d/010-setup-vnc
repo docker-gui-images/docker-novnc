@@ -4,9 +4,7 @@ set -eo pipefail
 
 [[ $DEBUG == true ]] && set -x
 
-if [ ! -d /home/user/vnc ]; then
-	mkdir /home/user/.vnc
-fi
+mkdir -p /home/user/.vnc
 chown -R user:user /home/user/.vnc
 chmod -R 755 /home/user/.vnc
 if [ "$VNC_PASSWD" != '' ]; then
@@ -14,9 +12,7 @@ if [ "$VNC_PASSWD" != '' ]; then
 	echo -e "$VNC_PASSWD\n$VNC_PASSWD\n\n" | sudo -Hu user vncpasswd /home/user/.vnc/passwd
 fi
 
-if [ ! -d /etc/vnc ]; then
-	mkdir /etc/vnc
-fi
+mkdir -p /etc/vnc
 echo 'openbox-session' > /etc/vnc/xstartup
 
 # Clear X lock.
